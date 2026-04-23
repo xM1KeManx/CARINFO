@@ -1,0 +1,63 @@
+<ion-content class="home-content">
+
+  <!-- SLIDER manual simple -->
+  <!-- SLIDER -->
+<div class="slider-wrap">
+  <div *ngFor="let s of slides; let i = index">
+    <div class="slide-item" *ngIf="slideActivo===i">
+      <img [src]="s.img" class="slide-img" onerror="this.src='assets/car-bg.jpg'"/>
+      <div class="slide-msg-wrap">
+        <div class="slide-msg">{{ s.msg }}</div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-dots">
+    <span *ngFor="let s of slides; let i = index"
+      [class.active]="slideActivo===i" (click)="slideActivo=i"></span>
+  </div>
+</div>
+
+  <!-- Bienvenida -->
+  <div class="bienvenida">
+    <img src="assets/icon/icon.png" class="logo-app"/>
+    <h1 class="app-title">CarInfo</h1>
+    <p class="app-sub">App de Información Automotriz</p>
+
+    <div *ngIf="!auth.logueado()" class="btn-auth-row">
+      <ion-button expand="block" (click)="ir('/login')" color="primary">
+        <ion-icon slot="start" name="log-in-outline"></ion-icon>
+        Iniciar Sesión
+      </ion-button>
+      <ion-button expand="block" fill="outline" (click)="ir('/registro')" color="primary">
+        Registrarse
+      </ion-button>
+    </div>
+
+    <div *ngIf="auth.logueado()" class="usuario-bienvenida">
+      <img [src]="auth.usuario()?.fotoUrl || 'assets/avatar.png'" class="avatar"/>
+      <p>Bienvenido, <strong>{{ auth.usuario()?.nombre }}</strong></p>
+      <ion-button size="small" fill="outline" color="danger" (click)="cerrar()">Cerrar sesión</ion-button>
+    </div>
+  </div>
+
+  <!-- Menú rápido público -->
+  <div class="seccion-titulo">Explorar</div>
+  <div class="menu-grid">
+    <div class="menu-card" *ngFor="let m of menus" (click)="ir(m.ruta)">
+      <ion-icon [name]="m.icon" class="menu-icon"></ion-icon>
+      <span>{{ m.label }}</span>
+    </div>
+  </div>
+
+  <!-- Menú con login -->
+  <div *ngIf="auth.logueado()">
+    <div class="seccion-titulo">Mi Cuenta</div>
+    <div class="menu-grid">
+      <div class="menu-card accent" *ngFor="let m of menusAuth" (click)="ir(m.ruta)">
+        <ion-icon [name]="m.icon" class="menu-icon"></ion-icon>
+        <span>{{ m.label }}</span>
+      </div>
+    </div>
+  </div>
+
+</ion-content>
