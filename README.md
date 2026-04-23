@@ -43,6 +43,7 @@ CarInfo es una aplicación móvil para Android que permite gestionar de manera i
 ## 📦 Módulos
 
 ### 🔓 Públicos (sin login)
+
 | # | Módulo | Descripción |
 |---|---|---|
 | 1 | Inicio / Dashboard | Slider de imágenes y acceso rápido a secciones |
@@ -54,6 +55,7 @@ CarInfo es una aplicación móvil para Android que permite gestionar de manera i
 | 7 | Acerca De | Información del equipo de desarrollo |
 
 ### 🔒 Con Login (autenticados)
+
 | # | Módulo | Descripción |
 |---|---|---|
 | 8 | Iniciar Sesión | Login con matrícula + recuperar contraseña |
@@ -89,3 +91,62 @@ npx cap open android
 ---
 
 ## 📁 Estructura
+
+```
+src/
+├── app/
+│   ├── guards/           # authGuard
+│   ├── services/         # ApiService, AuthService
+│   ├── pages/            # 15 módulos
+│   │   ├── registro/
+│   │   ├── activar/
+│   │   ├── login/
+│   │   ├── noticias/
+│   │   ├── noticia-detalle/
+│   │   ├── videos/
+│   │   ├── catalogo/
+│   │   ├── catalogo-detalle/
+│   │   ├── foro/
+│   │   ├── foro-detalle/
+│   │   ├── acerca/
+│   │   ├── perfil/
+│   │   ├── vehiculos/
+│   │   ├── vehiculo-detalle/
+│   │   ├── mantenimientos/
+│   │   ├── combustible/
+│   │   ├── gomas/
+│   │   ├── gastos/
+│   │   ├── ingresos/
+│   │   └── mis-temas/
+│   ├── home/
+│   ├── app.routes.ts
+│   ├── app.config.ts
+│   └── app.component.ts
+└── assets/
+```
+
+---
+
+## 🔗 API
+
+```
+Base URL: https://taller-itla.ia3x.com/api/
+Swagger:  https://taller-itla.ia3x.com/api/swagger/
+```
+
+> Todos los POST envían datos en campo `datax` via `form-encoded`. Las fotos van como `multipart/form-data`.
+
+---
+
+## 📲 Descarga
+
+| Recurso | Enlace |
+|---|---|
+| 📦 APK | [Descargar APK](https://drive.google.com/file/d/1PmCJob2oJynzShOnA_9Qm9AI0xKFzIVx/view?usp=sharing) |
+| 🎥 Video demo | [Ver video](https://drive.google.com/file/d/1n8_XLBL_xbmaV3MQa1s3_d6NxzxaTNqx/view?usp=sharing) |
+
+---
+
+## 📄 Licencia
+
+Proyecto académico — ITLA 2026 — Todos los derechos reservados.****
